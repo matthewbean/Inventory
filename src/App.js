@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import Test from './components/Test.jsx';
+import ItemList from './components/ItemList.jsx';
 import Additems from './components/AddItem';
 
 
@@ -13,8 +13,7 @@ function App() {
     <InventoryState>
     <div className="App">
       <Additems />
-      <Test />
-      
+      <ItemList />
     </div>
     </InventoryState>
   );

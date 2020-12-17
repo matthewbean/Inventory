@@ -2,7 +2,8 @@ import React, { useReducer } from 'react';
 import inventoryReducer from './inventoryReducer';
 import InventoryContext from './inventoryContext';
 
-import { ADD_ITEM } from '../types';
+import { ADD_ITEM,
+REMOVE_ITEM } from '../types';
 
 
 
@@ -15,17 +16,20 @@ const InventoryState = props => {
         items: [{
             name: "resistor",
             amount: 4,
-            location: "Living room"
+            location: "bLiving room",
+            id: "123"
         },
         {
             name: "capacitors",
             amount: 2,
-            location: "Living room"
+            location: "aLiving room",
+            id: "1234"
         },
         {
             name: "batteries",
             amount: 1,
-            location: "Living room"
+            location: "cLiving room",
+            id: "13"
         }]
     };
 
@@ -35,7 +39,14 @@ const InventoryState = props => {
     const addItem = (newItem)=>{
         dispatch({
             type: ADD_ITEM,
-            payload: newItem
+            payload:  newItem
+        })
+    }
+    //remove item
+    const removeItem = (id)=>{
+        dispatch({
+            type: REMOVE_ITEM,
+            payload: id
         })
     }
     return (
@@ -43,7 +54,8 @@ const InventoryState = props => {
         value = {{
             name: state.name,
             items: state.items,
-            addItem
+            addItem,
+            removeItem
         }}>
             { props.children}
        
